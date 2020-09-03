@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useSelector } from 'react-redux';
-
+import { ProductsContext } from '../context/products-contexts';
 import ProductItem from '../components/Products/ProductItem';
 import './Products.css';
 
 const Products = props => {
+ const productList =  useContext(ProductsContext).products;
   const productList = useSelector(state => state.shop.products);
   return (
     <ul className="products-list">
