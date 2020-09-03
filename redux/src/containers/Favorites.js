@@ -1,10 +1,11 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useContext } from 'react';
+import {ProductsContext} from '../context/products-contexts';
 
 import FavoriteItem from '../components/Favorites/FavoriteItem';
 import './Products.css';
 
 const Favorites = props => {
+  const favoriteProducts = useContext(ProductsContext).products.filter(p => p.isFavorite);
   const favoriteProducts = useSelector(state =>
     state.shop.products.filter(p => p.isFavorite)
   );
